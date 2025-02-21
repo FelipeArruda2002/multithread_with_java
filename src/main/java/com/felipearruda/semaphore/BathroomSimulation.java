@@ -15,12 +15,12 @@ public class BathroomSimulation {
         ExecutorService executorService = Executors.newCachedThreadPool();
 
         Runnable bathroomUserTask = () -> {
-            int idUsuario = new Random().nextInt(1000);
+            int idUser = getUniqueUserId();
 
             acquire(publicRestroom);
-            System.out.println(String.format("User %d entered the bathroom", getUniqueUserId()));
+            System.out.println(String.format("User %d entered the bathroom", idUser));
             sleep();
-            System.out.println(String.format("User %d left the bathroom", getUniqueUserId()));
+            System.out.println(String.format("User %d left the bathroom", idUser));
             publicRestroom.release();
         };
 
